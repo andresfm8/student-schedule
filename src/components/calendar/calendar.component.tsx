@@ -2,8 +2,10 @@ import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import useStyles from './calendar.styles';
 import Paper from '@material-ui/core/Paper';
+import { useEffect, useState } from 'react';
 
 const dummyData = {
+  noOfYears: 3,
   years: 
   [
     {
@@ -12,19 +14,19 @@ const dummyData = {
       terms: [
         {
           id: 1,
-          name: "first",
+          name: "First Term",
           courses: 6,
           coop: false
         },
         {
           id: 2,
-          name: "second",
+          name: "Second Term",
           courses: 6,
           coop: false
         },
         {
           id: 3,
-          name: "break",
+          name: "Break",
           courses: 0,
           coop: false
         },
@@ -64,13 +66,33 @@ const Calendar = () => {
     <Container>
       <Grid container>
         {dummyData.years.map((year) => (
-            <Grid key={year.id} container xs={4} lg={12} spacing={1}>
+            <Grid 
+              key={year.id} 
+              container xs={4} lg={12} spacing={1}
+              className={classes.yearTermContainer}  
+            >
               <Grid
                 item 
                 xs={4} lg={3}
                 className={classes.gridYear}  
               >
-                <Paper variant="outlined" className={classes.yearDisplay}>{year.name}</Paper>
+                <Paper 
+                  square  
+                  variant="outlined"
+                  className={classes.yearDisplay}
+                >
+                  <p className={classes.yearContent}>
+                    {year.name} year
+                      <br/>
+                    September 2019
+                      <br/>
+                      <span>
+                        to
+                      </span>
+                      <br/>
+                    August 2020
+                  </p>
+                </Paper>
               </Grid>
               <Grid 
                 item 
@@ -84,7 +106,9 @@ const Calendar = () => {
                     variant="outlined" 
                     className={classes.paper}
                   >
-                    {term.name}
+                    <h3>{term.name}</h3>
+                    <h5>{term.courses ? `${term.courses} courses` : 'No courses at this time, you may take extra courses if you wish to reduce your courseload'}</h5>
+                    <button>See more</button> {/*Use a material ui button*/}
                   </Paper>
                 ))
                 }
