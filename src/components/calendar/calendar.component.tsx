@@ -3,8 +3,12 @@ import Grid from '@material-ui/core/Grid';
 import useStyles from './calendar.styles';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
-//Set year property empty and when selected a year then loop through each year and set it to the value
-//Same with starting term
+// TODO:
+//  - Separate year and term components and create a component to put them together 
+//  - Set year property empty and when selected a year then loop through each year and set it to the value
+//  - Same with starting term
+//  - Create Context (weight pro's/con's of using redux) provider for program data so it can be reused
+//  - Create a firebase instance to store course information OR move data temporarily to its own file
 const dummyData = {
   noOfYears: 3,
   years: 
