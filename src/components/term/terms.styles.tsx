@@ -2,6 +2,10 @@ import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
+    gridTerms: {
+      display: 'inline-grid',
+      textAlign: 'left'
+    },
     termDisplay: {
       margin: '0.4vh 0',
       paddingLeft: '1em',
