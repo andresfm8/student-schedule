@@ -3,13 +3,28 @@ import Grid from '@material-ui/core/Grid';
 import useStyles from './calendar.styles';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
+
+import Term from '../term/term.component';
+
+import { Terms } from '../term/term.component';
 // TODO:
 //  - Separate year and term components and create a component to put them together 
 //  - Set year property empty and when selected a year then loop through each year and set it to the value
 //  - Same with starting term
 //  - Create Context (weight pro's/con's of using redux) provider for program data so it can be reused
 //  - Create a firebase instance to store course information OR move data temporarily to its own file
-const dummyData = {
+
+type DummyData = {
+  noOfYears: number;
+  years: {
+    id: number;
+    name: string;
+    time: string;
+    terms: Terms[];
+  }[]
+}
+
+const dummyData: DummyData  = {
   noOfYears: 3,
   years: 
   [
@@ -107,7 +122,8 @@ const Calendar = () => {
                 className={classes.gridTerms}
                 // spacing={5}
               >
-                {year.terms.map(term => (
+              <Term terms={year.terms} />
+                {/* {year.terms.map(term => (
                   <Paper 
                     key={term.id}
                     square 
@@ -127,7 +143,7 @@ const Calendar = () => {
                      
                   </Paper>
                 ))
-                }
+                } */}
               </Grid>
             </Grid>
           ))}

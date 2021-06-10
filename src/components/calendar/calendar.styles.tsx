@@ -27,6 +27,7 @@ const useStyles = makeStyles((theme: Theme) =>
       margin: '0 auto',
       alignSelf: 'center',
       textAlign: 'center',
+      width: '200px',
       [theme.breakpoints.down('md')]: {
         transform: 'rotate(-90deg)',
         /* Safari */
