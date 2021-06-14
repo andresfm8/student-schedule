@@ -3,7 +3,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import { ChangeEvent, useState } from 'react';
-import useStyles from './select-dropdown.styles';
+import useStyles from './form-dropdown.styles';
 
 type DropdownProps = {
   label: string,
@@ -21,7 +21,7 @@ const SelectDropdown = ({ label, selectionOptions } : DropdownProps) => {
   };
 
   return (
-    <FormControl className={classes.formControl}>
+    <FormControl className={classes.formControl} >
       <InputLabel id="select-label">{label}</InputLabel>
       <Select
         labelId="select-label"
