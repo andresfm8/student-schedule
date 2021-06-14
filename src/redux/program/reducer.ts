@@ -4,15 +4,13 @@ const initialState: ProgramState = {
   programs: [
     {
       id: 1,
-      title: "post 1",
-      body:
-        "Quisque cursus, metus vitae pharetra Nam libero tempore, cum soluta nobis est eligendi",
+      name: "post 1",
+      years: [{ year: 1 }, { year: 2 }]
     },
     {
       id: 2,
-      title: "post 2",
-      body:
-        "Harum quidem rerum facilis est et expedita distinctio quas molestias excepturi sint",
+      name: "post 2",
+      years: [{ year: 1 }, { year: 2 }]
     },
   ],
 }
@@ -23,14 +21,14 @@ const reducer = (
 ): ProgramState => {
   switch (action.type) {
     case actionTypes.FETCH_PROGRAM:
-      const newArticle: IProgram = {
-        id: Math.random(), // not really unique
-        title: action.article.title,
-        body: action.article.body,
+      const newProgram: IProgram = {
+        id: Math.random(), // not really unique -> very unlikely but would need to check if it exists
+        name: action.payload.name,
+        years: action.payload.years,
       }
       return {
         ...state,
-        programs: state.programs.concat(newArticle),
+        programs: state.programs.concat(newProgram),
       }
   }
   return state

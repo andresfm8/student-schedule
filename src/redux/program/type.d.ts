@@ -1,7 +1,7 @@
 interface IProgram {
   id: number
-  title: string
-  body: string
+  name: string
+  years: any[] // Swap to array of years
 }
 
 type ProgramState = {
@@ -10,7 +10,13 @@ type ProgramState = {
 
 type ProgramAction = {
   type: string
-  article: IProgram
+  payload: TPayload
 }
+
+// interface IActionCreator<P> {
+//   type: string;
+//   (payload: P): Action<P>;
+// }
+
 
 type DispatchType = (args: ProgramAction) => ProgramAction

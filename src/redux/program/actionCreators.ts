@@ -1,10 +1,8 @@
 import * as actionTypes from "./actionTypes"
 
-export function addArticle(article: IProgram) {
+export function fetchProgram(programId: number) {
   const action: ProgramAction = {
     type: actionTypes.FETCH_PROGRAM,
-    article,
+    payload: programId
   }
-
-  return action
 }
