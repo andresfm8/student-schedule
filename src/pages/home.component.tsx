@@ -1,5 +1,5 @@
 import Calendar from "../components/calendar/calendar.component";
-import SelectDropdown from "../components/select-dropdown/select-dropdown.component";
+import SelectDropdown from "../components/form-dropdown/form-dropdown.component";
 
 const HomePage = () => {
   const data: string[] = ["one", "two"];
