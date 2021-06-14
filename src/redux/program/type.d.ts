@@ -13,10 +13,4 @@ type ProgramAction = {
   payload: TPayload
 }
 
-// interface IActionCreator<P> {
-//   type: string;
-//   (payload: P): Action<P>;
-// }
-
-
 type DispatchType = (args: ProgramAction) => ProgramAction
