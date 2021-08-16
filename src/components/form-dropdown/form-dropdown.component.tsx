@@ -10,28 +10,30 @@ type DropdownProps = {
   selectionOptions: string[]
 }
 
-const SelectDropdown = ({ label, selectionOptions } : DropdownProps) => {
-// TODO: Set up context api to send value of selection to calendar component
+const FormDropdown = ({ label, selectionOptions }: DropdownProps) => {
+  //Set up redux here so when we select something it sets the value and when we click done it pulls it 
   const classes = useStyles();
 
   const [selection, setSelection] = useState<string>("");
 
-  const handleChange = (e: ChangeEvent<{value: unknown}>) => {
+  const handleChange = (e: ChangeEvent<{ value: unknown }>) => {
     setSelection(e.target.value as string);
   };
 
+  //Set state and dispatch to map of  selections?
+
   return (
     <FormControl className={classes.formControl} >
-      <InputLabel id="select-label">{label}</InputLabel>
+      <InputLabel id={label}>{label}</InputLabel>
       <Select
-        labelId="select-label"
-        id="select"
+        labelId={label}
+        id={`${label}-id`}
         value={selection}
         onChange={handleChange}
       >
         {
           selectionOptions.map(option => (
-            <MenuItem key={option} value={option}>{option}</MenuItem>    
+            <MenuItem key={option} value={option}>{option}</MenuItem>
           ))
         }
       </Select>
@@ -39,4 +41,4 @@ const SelectDropdown = ({ label, selectionOptions } : DropdownProps) => {
   )
 }
 
-export default SelectDropdown;
+export default FormDropdown;

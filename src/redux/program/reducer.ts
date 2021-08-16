@@ -2,15 +2,15 @@ import * as actionTypes from "./actionTypes"
 import PROGRAMS_DATA from "./programs.data"
 
 const initialState: ProgramState = {
-  programs: PROGRAMS_DATA, //Initialize with json file with all data
-  selectedProgram: {
+  programs: PROGRAMS_DATA,
+  selectedProgram: { //To display data
     id: NaN,
     name: "",
     startingTerm: [],
     noOfYears: NaN,
     years: []
   },
-  dropdownSelection: {
+  dropdownSelection: { //To set Data
     name: "",
     startingTerm: "",
     year: ""
@@ -23,7 +23,7 @@ const reducer = (
   action: ProgramAction
 ): ProgramState => {
   switch (action.type) {
-    case actionTypes.FETCH_PROGRAM:
+    case actionTypes.SET_PROGRAM:
       const dropdownSelection: DropdownSelection = {
         name: action.payload.name,
         startingTerm: action.payload.startingTerm,

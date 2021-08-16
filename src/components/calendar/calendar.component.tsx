@@ -6,6 +6,7 @@ import Terms from '../term/terms.component';
 
 import { Term } from '../term/terms.component';
 import Year from '../year/year.component';
+
 // TODO:
 //  - Set year property empty and when selected a year then loop through each year and set it to the value
 //  - Same with starting term
@@ -23,67 +24,67 @@ type DummyData = {
   }[]
 }
 
-const dummyData: DummyData  = {
+const dummyData: DummyData = {
   noOfYears: 3,
-  years: 
-  [
-    {
-      id: 1,
-      name: "First",
-      time: "2019-2020",
-      terms: [
-        {
-          id: 1,
-          name: "First Term",
-          time: "September to December",
-          courses: 6,
-          coop: false
-        },
-        {
-          id: 2,
-          name: "Second Term",
-          time: "January to April",
-          courses: 6,
-          coop: false
-        },
-        {
-          id: 3,
-          name: "Break",
-          time: "May to August",
-          courses: 0,
-          coop: false
-        },
-      ]
-    },
-    {
-      id: 2,
-      name: "Second",
-      time: "2020-2021",
-      terms: [
-        {
-          id: 1,
-          name: "third",
-          time: "September to December",
-          courses: 6,
-          coop: false
-        },
-        {
-          id: 2,
-          name: "co-op",
-          time: "January to April",
-          courses: 0,
-          coop: true
-        },
-        {
-          id: 3,
-          name: "fourth",
-          time: "May to August",
-          courses: 6,
-          coop: false
-        },
-      ]
-    }
-  ]
+  years:
+    [
+      {
+        id: 1,
+        name: "First",
+        time: "2019-2020",
+        terms: [
+          {
+            id: 1,
+            name: "First Term",
+            time: "September to December",
+            courses: 6,
+            coop: false
+          },
+          {
+            id: 2,
+            name: "Second Term",
+            time: "January to April",
+            courses: 6,
+            coop: false
+          },
+          {
+            id: 3,
+            name: "Break",
+            time: "May to August",
+            courses: 0,
+            coop: false
+          },
+        ]
+      },
+      {
+        id: 2,
+        name: "Second",
+        time: "2020-2021",
+        terms: [
+          {
+            id: 1,
+            name: "third",
+            time: "September to December",
+            courses: 6,
+            coop: false
+          },
+          {
+            id: 2,
+            name: "co-op",
+            time: "January to April",
+            courses: 0,
+            coop: true
+          },
+          {
+            id: 3,
+            name: "fourth",
+            time: "May to August",
+            courses: 6,
+            coop: false
+          },
+        ]
+      }
+    ]
 }
 
 const Calendar = () => {
@@ -93,18 +94,18 @@ const Calendar = () => {
     <Container>
       <Grid container>
         {dummyData.years.map((year) => (
-          <Grid 
-            key={year.id} 
-            container  spacing={1}
-            className={classes.yearTermContainer}  
+          <Grid
+            key={year.id}
+            container spacing={1}
+            className={classes.yearTermContainer}
           >
-            <Year 
+            <Year
               name={year.name}
               time={year.time}
             />
             <Terms terms={year.terms} />
           </Grid>
-          ))}
+        ))}
       </Grid>
     </Container>
   )
