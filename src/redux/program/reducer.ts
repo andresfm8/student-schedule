@@ -18,23 +18,34 @@ const initialState: ProgramState = {
 
 }
 
-const reducer = (
+const programReducer = (
   state: ProgramState = initialState,
   action: ProgramAction
 ): ProgramState => {
   switch (action.type) {
     case actionTypes.SET_PROGRAM:
-      const dropdownSelection: DropdownSelection = {
-        name: action.payload.name,
-        startingTerm: action.payload.startingTerm,
-        year: action.payload.year,
-      };
       return {
         ...state,
-        dropdownSelection: dropdownSelection
+        selectedProgram: state.programs.find(
+          (program: IProgram) => (
+            program.name === action.payload
+          )
+        ) || state.selectedProgram
       };
+    // Will need a helper file for this function. Should get the current program and return it in a way that the schedule matches the start time.
+    // Might need to reevaluate the data structure (instead of years just count semesters)
+    case actionTypes.SET_STARTING_TERM:
+      return {
+        ...state,
+        selectedProgram: state.programs.find(
+          (program: IProgram) => (
+            program.name === action.payload
+          )
+        ) || state.selectedProgram
+      }
+    default:
+      return state;
   }
-  return state;
 }
 
-export default reducer
+export default programReducer;

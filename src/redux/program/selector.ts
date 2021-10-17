@@ -1,18 +1,20 @@
 import { createSelector } from 'reselect';
 
-const selectPrograms = (state: ProgramState): IProgram[] => state.programs;
-const selectDropdownProgram = (state: ProgramState): DropdownSelection => state.dropdownSelection;
+const selectPrograms = (state: any): ProgramState => state.programDirectory;
 
-// export const fetchProgram = createSelector<ProgramState, IProgram[], IProgram[]>(
-//   [selectPrograms],
-//   (programs: IProgram[]) => programs
-// )
+//EXAMPLE if needed arguments
+// export const retrieveProgram = () =>
+//   createSelector(
+//     [selectProgram],
+//     (selectedProgram: IProgram) => selectedProgram
+//   );
 
-export const selectProgram = (dropdownProgram: DropdownSelection) =>
-  createSelector(
-    [selectPrograms],
-    (selectedPrograms: IProgram[]) =>
-      selectedPrograms.find(
-        (program: IProgram) => program.name == dropdownProgram.name
-      )
-  ); //Might remove dropdownProgram and add selectDropdownProgram
+export const retrieveProgram = createSelector(
+  [selectPrograms],
+  programDirectory => programDirectory.selectedProgram
+);
+
+export const retrievePrograms = createSelector(
+  [selectPrograms],
+  programDirectory => programDirectory.programs
+)

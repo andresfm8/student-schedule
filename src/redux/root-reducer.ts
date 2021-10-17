@@ -1,7 +1,8 @@
-import  { combineReducers } from 'redux';
+import { combineReducers } from 'redux';
+import programReducer from './program/reducer';
 
 const rootReducer = combineReducers({
-  // user: userReducer
+  programDirectory: programReducer,
 });
 
 export default rootReducer;

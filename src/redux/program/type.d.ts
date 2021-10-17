@@ -25,7 +25,7 @@ type ProgramState = {
   selectedProgram: IProgram,
   dropdownSelection: DropdownSelection
 }
-
+//Might delete this type
 type DropdownSelection = {
   name: string,
   startingTerm: string,
