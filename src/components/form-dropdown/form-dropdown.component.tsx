@@ -1,35 +1,37 @@
-import FormControl from '@material-ui/core/FormControl';
-import InputLabel from '@material-ui/core/InputLabel';
-import Select from '@material-ui/core/Select';
-import MenuItem from '@material-ui/core/MenuItem';
-import { ChangeEvent, useState } from 'react';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { FormControl, InputLabel, MenuItem, Select, SelectChangeEvent } from '@mui/material';
+
 import useStyles from './form-dropdown.styles';
 
 type DropdownProps = {
   label: string,
-  selectionOptions: string[]
+  selectionOptions: string[],
+  dispatchHandler: Function
 }
 
-const FormDropdown = ({ label, selectionOptions }: DropdownProps) => {
-  //Set up redux here so when we select something it sets the value and when we click done it pulls it 
+const FormDropdown = ({ label, selectionOptions, dispatchHandler }: DropdownProps) => {
+
+  const dispatch = useDispatch();
+
   const classes = useStyles();
 
   const [selection, setSelection] = useState<string>("");
 
-  const handleChange = (e: ChangeEvent<{ value: unknown }>) => {
+  const handleChange = (e: SelectChangeEvent) => {
     setSelection(e.target.value as string);
+    dispatch(dispatchHandler(e.target.value as string));
   };
 
-  //Set state and dispatch to map of  selections?
-
   return (
-    <FormControl className={classes.formControl} >
-      <InputLabel id={label}>{label}</InputLabel>
+    <FormControl sx={{ m: 3 }} className={classes.formControl}>
+      <InputLabel id={label} className={classes.labelColor}>{label}</InputLabel>
       <Select
         labelId={label}
         id={`${label}-id`}
         value={selection}
         onChange={handleChange}
+        className={classes.labelColor}
       >
         {
           selectionOptions.map(option => (

@@ -1,11 +1,15 @@
-import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+import { createStyles, makeStyles } from "@mui/styles";
 
-const useStyles = makeStyles((theme: Theme) =>
+import { createTheme } from '@mui/material/styles';
+
+const theme = createTheme();
+
+const useStyles = makeStyles(
   createStyles({
     gridYear: {
       height: '100%',
-      gridGap: theme.spacing(3),
-      display: 'flex'      
+      fap: 5,
+      display: 'flex'
       // margin: '0.5vh 0.1vw',
     },
     yearDisplay: {
@@ -13,7 +17,7 @@ const useStyles = makeStyles((theme: Theme) =>
       width: '100%',
       display: 'flex',
       background: '#16131d !important',
-      color: '#fff !important'      
+      color: '#fff !important'
     },
     yearContent: {
       margin: '0 auto',
@@ -34,7 +38,7 @@ const useStyles = makeStyles((theme: Theme) =>
         filter: 'progid:DXImageTransform.Microsoft.BasicImage(rotation=3)'
       }
     },
-    
+
   }),
 );
 

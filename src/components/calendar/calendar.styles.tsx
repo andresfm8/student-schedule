@@ -1,10 +1,9 @@
-import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+import { createStyles, makeStyles } from "@mui/styles";
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles(
   createStyles({
-    yearTermContainer :{
+    yearTermContainer: {
       marginBottom: '0.5em',
-      
     },
   }),
 );

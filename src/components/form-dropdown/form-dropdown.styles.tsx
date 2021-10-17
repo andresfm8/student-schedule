@@ -1,12 +1,14 @@
-import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+import { createStyles, makeStyles } from "@mui/styles";
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles(
   createStyles({
     formControl: {
-      margin: theme.spacing(1),
-      minWidth: 120,
+      minWidth: '120px !important ',
       color: '#fff !important'
     },
+    labelColor: {
+      color: '#fff !important'
+    }
   }),
 );
 
